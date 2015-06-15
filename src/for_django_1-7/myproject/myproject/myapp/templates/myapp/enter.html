@@ -7,17 +7,17 @@
 
 	<body>
 		<!-- List of uploaded documents -->
-		{% if documents %}
+		{% if patientEvals %}
 			<ul>
-			{% for document in documents %}
-				<li>{{ document.patientEval }} <a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-				<!-- TODO; jump to editing the patient
+			{% for patientEval in patientEvals %}
+				<li> <a href="{{ document.patientEval.url }}">{{ document.patientEval }}</a></li>
+				<!-- jump to editing the patient
 				<a href="{{ document.patientEval.url }}">{{ document.patientEval }}</a>
 				-->
 			{% endfor %}
 			</ul>
 		{% else %}
-			<p>No documents.</p>
+			<p>No patientEvals.</p>
 		{% endif %}
 
 		<!-- Upload form. Note enctype attribute! -->

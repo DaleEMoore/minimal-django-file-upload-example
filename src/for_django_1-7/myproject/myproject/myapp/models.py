@@ -124,8 +124,9 @@ class PatientEval(models.Model):
 class Document(models.Model):
     patientEval = models.ForeignKey(PatientEval, blank=True, null=True)
     docfile = models.FileField(default='', upload_to='documents/%Y/%m/%d')
+    comment = models.CharField(default='', max_length=100, blank=True)
     def __unicode__(self):  # Python 3: def __str__(self):
-        return u'%s: %s' % (self.patientEval, self.docfile)
+        return u'%s: %s - %s' % (self.patientEval, self.docfile, self.comment)
         #return u'%s: %s' % (self.patientEval, self.docfile)
 
 #class Document(models.Model):

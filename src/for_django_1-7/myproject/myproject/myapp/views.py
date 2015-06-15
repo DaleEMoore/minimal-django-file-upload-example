@@ -4,8 +4,10 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
-from myproject.myapp.models import Document
-from myproject.myapp.forms import DocumentForm
+from .models import Document
+from .forms import DocumentForm
+from .models import PatientEval
+from .forms import PatientEvalForm
 
 def list(request):
     # Handle file upload
@@ -27,5 +29,28 @@ def list(request):
     return render_to_response(
         'myapp/list.html',
         {'documents': documents, 'form': form},
+        context_instance=RequestContext(request)
+    )
+
+def enter(request):
+    # Handle file upload
+    if request.method == 'POST':
+        form = PatientEvalForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = PatientEval(docfile = request.FILES['docfile'])
+            newdoc.save()
+
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(reverse('myproject.myapp.views.enter'))
+    else:
+        form = PatientEvalForm() # A empty, unbound form
+
+    # Load documents for the list page
+    patientEvals = PatientEval.objects.all()
+
+    # Render list page with the documents and the form
+    return render_to_response(
+        'myapp/enter.html',
+        {'patientEvals': patientEvals, 'form': form},
         context_instance=RequestContext(request)
     )

@@ -8,7 +8,7 @@ inspired by http://stackoverflow.com/questions/5871730/need-a-minimal-django-fil
 TODO
 Add file uploads to patient.
 Re-access the patient and add/change/delete items on the patient and upload files list.
-
+    This is working fine in administration, but; I want it in a form.
 
 
 Logs
