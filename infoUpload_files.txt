@@ -6,7 +6,6 @@ inspired by http://stackoverflow.com/questions/5871730/need-a-minimal-django-fil
 
 
 TODO
-Add admin
 Add file uploads to patient.
 Re-access the patient and add/change/delete items on the patient and upload files list.
 
@@ -26,3 +25,6 @@ fixes it.
 
 
 Add patient to model, like proActive patientEval.
+
+Add admin; it wouldn't show Documents or Patient evals. I left, ran some errands and
+when I came back it works fine.

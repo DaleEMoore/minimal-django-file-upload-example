@@ -122,10 +122,10 @@ class PatientEval(models.Model):
 
 
 class Document(models.Model):
-    #patientEval = models.ForeignKey(PatientEval, default='')
-    docfile = models.FileField(default='',upload_to='documents/%Y/%m/%d')
+    patientEval = models.ForeignKey(PatientEval, blank=True, null=True)
+    docfile = models.FileField(default='', upload_to='documents/%Y/%m/%d')
     def __unicode__(self):  # Python 3: def __str__(self):
-        return u'%s' % (self.docfile)
+        return u'%s: %s' % (self.patientEval, self.docfile)
         #return u'%s: %s' % (self.patientEval, self.docfile)
 
 #class Document(models.Model):
