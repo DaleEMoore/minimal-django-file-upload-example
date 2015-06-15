@@ -8,7 +8,7 @@ class DocumentForm(forms.Form):
     )
 
 class PatientEvalForm(forms.Form):
-    patientEval = forms.ModelChoiceField(
+    patientEvals = forms.ModelChoiceField(
         queryset=PatientEval.objects.all(),
         label='Select a patient'
     )
