@@ -1,0 +1,28 @@
+minimal-django-file-upload-example
+https://github.com/DaleEMoore/minimal-django-file-upload-example
+Forked from https://github.com/axelpale/minimal-django-file-upload-example
+inspired by http://stackoverflow.com/questions/5871730/need-a-minimal-django-file-upload-example
+
+
+
+TODO
+Add admin
+Add file uploads to patient.
+Re-access the patient and add/change/delete items on the patient and upload files list.
+
+
+
+Logs
+Mon 15 Jun 2015 11:30 AM CST
+Created.
+
+
+
+./manage.py migrate myapp
+gets
+django.db.utils.OperationalError: no such table: django_content_type
+./manage.py migrate
+fixes it.
+
+
+Add patient to model, like proActive patientEval.
