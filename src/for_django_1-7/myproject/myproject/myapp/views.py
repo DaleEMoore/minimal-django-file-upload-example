@@ -9,7 +9,7 @@ from .forms import DocumentForm
 from .models import PatientEval
 from .forms import PatientEvalForm
 
-def list(request):
+def documents(request):
     # Handle file upload
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -18,7 +18,7 @@ def list(request):
             newdoc.save()
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('myproject.myapp.views.list'))
+            return HttpResponseRedirect(reverse('myproject.myapp.views.documents'))
     else:
         form = DocumentForm() # A empty, unbound form
 
@@ -27,12 +27,12 @@ def list(request):
 
     # Render list page with the documents and the form
     return render_to_response(
-        'myapp/list.html',
+        'myapp/documents.html',
         {'documents': documents, 'form': form},
         context_instance=RequestContext(request)
     )
 
-def enter(request):
+def patientEvals(request):
     # Handle file upload
     if request.method == 'POST':
         form = PatientEvalForm(request.POST, request.FILES)
@@ -41,7 +41,7 @@ def enter(request):
             newdoc.save()
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('myproject.myapp.views.enter'))
+            return HttpResponseRedirect(reverse('myproject.myapp.views.patientEvals'))
     else:
         form = PatientEvalForm() # A empty, unbound form
 
@@ -50,7 +50,7 @@ def enter(request):
 
     # Render list page with the documents and the form
     return render_to_response(
-        'myapp/enter.html',
+        'myapp/patientEvals.html',
         {'patientEvals': patientEvals, 'form': form},
         context_instance=RequestContext(request)
     )

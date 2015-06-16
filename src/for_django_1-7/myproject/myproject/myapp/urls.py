@@ -2,6 +2,6 @@
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns('myproject.myapp.views',
-    url(r'^list/$', 'list', name='list'),
-    url(r'^enter/$', 'enter', name='enter'),
+    url(r'^documents/$', 'documents', name='documents'),
+    url(r'^patientEvals/$', 'patientEvals', name='patientEvals'),
 )

@@ -2,26 +2,26 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>File Uploads Example</title>
+		<title>Patient</title>
 	</head>
 
 	<body>
 		<!-- List of uploaded documents -->
-		{% if documents %}
+		{% if patientEvals %}
 			<ul>
-			{% for document in documents %}
-				<li>{{ document.patientEval }} <a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+			{% for patientEval in patientEvals %}
+				<li> <a href="{{ patientEval.url }}">{{ patientEval.patient_name }}</a></li>
 				<!-- TODO; jump to editing the patient
 				<a href="{{ document.patientEval.url }}">{{ document.patientEval }}</a>
 				-->
 			{% endfor %}
 			</ul>
 		{% else %}
-			<p>No documents.</p>
+			<p>No patientEvals.</p>
 		{% endif %}
 
 		<!-- Upload form. Note enctype attribute! -->
-		<form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+		<form action="{% url "patientEvals" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<p>{{ form.non_field_errors }}</p>
 			<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
@@ -33,8 +33,7 @@
 		</form>
 		
 		<a href="/admin">Administration</a>
-        <a href="/myapp/enter">Enter</a>
-        <a href="/myapp/list">List</a>
+        <a href="/myapp/patientEvals">Patients</a>
+        <a href="/myapp/documents">Documents</a>
 	</body>
-
 </html> 

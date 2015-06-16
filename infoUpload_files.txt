@@ -6,9 +6,11 @@ inspired by http://stackoverflow.com/questions/5871730/need-a-minimal-django-fil
 
 
 TODO
-Add file uploads to patient.
+Add COMMENT to upload at http://localhost:8000/myapp/list/.
 Re-access the patient and add/change/delete items on the patient and upload files list.
     This is working fine in administration, but; I want it in a form.
+Add file uploads to patient.
+
 
 
 Logs

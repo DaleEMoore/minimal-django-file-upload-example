@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Minimal Django File Upload Example</title>	
+		<title>Documents</title>
 	</head>
 
 	<body>
@@ -10,7 +10,10 @@
 		{% if documents %}
 			<ul>
 			{% for document in documents %}
-				<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+				<li><a href="{{ document.docfile.url }}">{{ document.docfile }} - {{ document.comment }}</a> {{ document.patientEval }}</li>
+				<!-- TODO; jump to editing the patient
+				<a href="{{ document.patientEval.url }}">{{ document.patientEval }}</a>
+				-->
 			{% endfor %}
 			</ul>
 		{% else %}
@@ -18,7 +21,7 @@
 		{% endif %}
 
 		<!-- Upload form. Note enctype attribute! -->
-		<form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+		<form action="{% url "documents" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<p>{{ form.non_field_errors }}</p>
 			<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
@@ -29,6 +32,9 @@
 			<p><input type="submit" value="Upload" /></p>
 		</form>
 		
+		<a href="/admin">Administration</a>
+        <a href="/myapp/patientEvals">Patients</a>
+        <a href="/myapp/documents">Documents</a>
 	</body>
 
 </html> 
