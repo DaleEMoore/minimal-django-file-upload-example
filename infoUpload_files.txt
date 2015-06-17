@@ -6,6 +6,30 @@ inspired by http://stackoverflow.com/questions/5871730/need-a-minimal-django-fil
 
 
 TODO
+Research Table Relationships, many-to-one relationships
+    https://docs.djangoproject.com/en/1.8/topics/db/models/
+    https://docs.djangoproject.com/en/1.8/topics/db/examples/many_to_one/
+    https://docs.djangoproject.com/en/1.8/topics/db/examples/many_to_many/
+    http://stackoverflow.com/questions/3053638/django-m2m-adding-field-in-the-secondary-table
+
+    http://stackoverflow.com/questions/9586347/django-one-to-many-forms
+    https://github.com/elo80ka/django-dynamic-formset
+    https://github.com/elo80ka/django-dynamic-formset/blob/master/docs/usage.rst
+
+
+
+Create Add/change/delete patientEval referral form.
+
+Add documents to patientEval referral form.
+
+Ask for help
+    at Stack Exchange or secondary.
+    at Django forums.
+
+When I start the DEV server with runserver I always get Page not found (404) for http://localhost:8000/myapp/list/
+    though http://localhost:8000/myapp/list/ is not in the code anywhere that I can find.
+
+
 Add COMMENT to upload at http://localhost:8000/myapp/list/.
 Re-access the patient and add/change/delete items on the patient and upload files list.
     This is working fine in administration, but; I want it in a form.
