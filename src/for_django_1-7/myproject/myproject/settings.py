@@ -108,7 +108,24 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-
+# This should log to the console lots of stuff that MIGHT help fix some problems.
+"""
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
+"""
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -138,3 +155,4 @@ LOGGING = {
         },
     }
 }
+#             'level': 'DEBUG',

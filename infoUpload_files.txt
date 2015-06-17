@@ -18,9 +18,11 @@ Research Table Relationships, many-to-one relationships
 
     https://docs.djangoproject.com/en/1.8/topics/forms/formsets/#using-a-formset-in-views-and-templates
 
-
-
 Create Add/change/delete patientEval referral form.
+    http://localhost:8000/myapp/patientEval/
+    fails with
+    'PatientEval' object has no attribute 'all'
+
 
 Add documents to patientEval referral form.
 
@@ -30,6 +32,18 @@ Ask for help
 
 When I start the DEV server with runserver I always get Page not found (404) for http://localhost:8000/myapp/list/
     though http://localhost:8000/myapp/list/ is not in the code anywhere that I can find.
+
+    tried
+    ./manage.py runserver -v3 0.0.0.0:8000
+    and I don't get anything more verbose
+    Somewhere it stopped working for
+    http://localhost:8000/myapp/documents/
+    http://localhost:8000/myapp/patientEvals/
+    with the same error.
+    Sometimes it works, and other times not.
+    In Google Chrome http://localhost:8000 gets redirected to http://localhost:8000/myapp/list/
+    Switching to Firefox http://localhost:8000 goes, as it should, to http://localhost:8000/myapp/documents/
+
 
 
 Add COMMENT to upload at http://localhost:8000/myapp/list/.

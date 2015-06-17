@@ -8,8 +8,10 @@ from .models import Document
 from .forms import DocumentForm
 from .models import PatientEval
 from .forms import PatientEvalForm
+#from .models import PatientEvals
+from .forms import PatientsEvalForm
 
-def documents(request):
+def documentsView(request):
     # Handle file upload
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -32,7 +34,30 @@ def documents(request):
         context_instance=RequestContext(request)
     )
 
-def patientEvals(request):
+def patientsEvalView(request):
+    # Handle file upload
+    if request.method == 'POST':
+        form = PatientsEvalForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = PatientEval(docfile = request.FILES['docfile'])
+            newdoc.save()
+
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(reverse('myproject.myapp.views.patientsEval'))
+    else:
+        form = PatientsEvalForm() # A empty, unbound form
+
+    # Load documents for the list page
+    patientsEval = PatientEval.objects.all()
+
+    # Render list page with the documents and the form
+    return render_to_response(
+        'myapp/patientsEval.html',
+        {'patientsEval': patientsEval, 'form': form},
+        context_instance=RequestContext(request)
+    )
+
+def patientEvalView(request):
     # Handle file upload
     if request.method == 'POST':
         form = PatientEvalForm(request.POST, request.FILES)
@@ -41,16 +66,17 @@ def patientEvals(request):
             newdoc.save()
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('myproject.myapp.views.patientEvals'))
+            return HttpResponseRedirect(reverse('myproject.myapp.views.patientEval'))
     else:
         form = PatientEvalForm() # A empty, unbound form
 
     # Load documents for the list page
-    patientEvals = PatientEval.objects.all()
+    patientEval = PatientEval.objects.first()
+    #patientEvals = PatientEval.objects.all()
 
     # Render list page with the documents and the form
     return render_to_response(
-        'myapp/patientEvals.html',
-        {'patientEvals': patientEvals, 'form': form},
+        'myapp/patientEval.html',
+        {'patientEval': patientEval, 'form': form},
         context_instance=RequestContext(request)
     )
