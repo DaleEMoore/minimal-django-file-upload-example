@@ -16,6 +16,8 @@ Research Table Relationships, many-to-one relationships
     https://github.com/elo80ka/django-dynamic-formset
     https://github.com/elo80ka/django-dynamic-formset/blob/master/docs/usage.rst
 
+    https://docs.djangoproject.com/en/1.8/topics/forms/formsets/#using-a-formset-in-views-and-templates
+
 
 
 Create Add/change/delete patientEval referral form.
