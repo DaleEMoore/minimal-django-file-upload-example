@@ -7,19 +7,23 @@
 
 	<body>
         <a href="/">Home</a>
-        <a href="/admin">Administration</a>
         <a href="/myapp/patientEval">PatientEval</a>
         <a href="/myapp/patientsEval">PatientsEval</a>
         <a href="/myapp/documents">Documents</a>
+        <a href="/admin">Administration</a>
 		<br/>PatientEval
 		<!-- List of uploaded documallents -->
 		{% if patientEval %}
             {% for field in form %}
                 <div class="fieldWrapper">
                     {{ field.errors }}
-                    {{ field.label_tag }} {{ field }}
+                    {{ field.label_tag }}
                 </div>
             {% endfor %}
+            <!--
+                    {{ field.label_tag }} {{ field }}
+
+            -->
             <!--
             <br/>Name: {{ patientEval.patient_name }}
             <table><br/>{{ patientEval.as_table }}</table>

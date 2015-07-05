@@ -3,6 +3,7 @@ https://github.com/DaleEMoore/minimal-django-file-upload-example
 Forked from https://github.com/axelpale/minimal-django-file-upload-example
 inspired by http://stackoverflow.com/questions/5871730/need-a-minimal-django-file-upload-example
 
+http://localhost:8000/myapp/documents/
 
 
 TODO
